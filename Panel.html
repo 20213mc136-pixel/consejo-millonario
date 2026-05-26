@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panel</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#18181b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+
+button{
+
+    padding:20px 35px;
+
+    font-size:22px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#9147ff;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<button onclick="nuevoConsejo()">
+CONSEJO MILLONARIO
+</button>
+
+<script>
+
+const consejos = [
+
+"Si no controlas tus gastos pequeños, nunca tendrás dinero grande.",
+
+"La disciplina te lleva más lejos que la motivación.",
+
+"La gente rica compra tiempo; la pobre compra apariencias.",
+
+"Tu atención es más valiosa que tu dinero.",
+
+"El mejor momento para empezar era hace años; el segundo mejor es hoy."
+
+];
+
+let indice = 0;
+
+function nuevoConsejo(){
+
+    localStorage.setItem(
+        "consejo",
+        JSON.stringify({
+            texto: consejos[indice],
+            tiempo: Date.now()
+        })
+    );
+
+    indice++;
+
+    if(indice >= consejos.length){
+
+        indice = 0;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
