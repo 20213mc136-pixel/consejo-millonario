@@ -1,8 +1,3 @@
-# Consejo Millonario Overlay
-
-Guarda el siguiente código como `consejo.html` y ábrelo en tu navegador o en OBS como Browser Source.
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,119 +6,175 @@ Guarda el siguiente código como `consejo.html` y ábrelo en tu navegador o en O
 <title>Consejo Millonario</title>
 
 <style>
-    body{
-        margin:0;
-        background:transparent;
-        overflow:hidden;
-        font-family:Arial, sans-serif;
-    }
 
-    #consejoBox{
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        background:rgba(0,0,0,0.82);
-        color:white;
-        padding:30px 45px;
-        border-radius:22px;
-        font-size:38px;
-        text-align:center;
-        opacity:0;
-        transition:opacity 0.5s ease;
-        max-width:80%;
-        box-shadow:0 0 30px rgba(0,0,0,0.55);
-        border:2px solid rgba(255,255,255,0.15);
-    }
+body{
+    margin:0;
+    overflow:hidden;
+    background:transparent;
+    font-family:Arial, sans-serif;
+}
 
-    #panel{
-        position:fixed;
-        bottom:20px;
-        left:20px;
-        z-index:9999;
-    }
+#consejo{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
 
-    button{
-        font-size:20px;
-        padding:15px 25px;
-        border:none;
-        border-radius:15px;
-        cursor:pointer;
-        background:#9147ff;
-        color:white;
-        font-weight:bold;
-    }
+    background:rgba(0,0,0,0.85);
+    color:white;
 
-    button:hover{
-        transform:scale(1.05);
-    }
+    padding:30px 50px;
+
+    border-radius:25px;
+
+    font-size:42px;
+
+    text-align:center;
+
+    width:70%;
+
+    opacity:0;
+
+    transition:opacity 0.5s ease;
+
+    box-shadow:0 0 30px rgba(0,0,0,0.5);
+
+    border:2px solid rgba(255,255,255,0.1);
+}
+
+#boton{
+
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    padding:15px 30px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#9147ff;
+
+    color:white;
+
+    cursor:pointer;
+
+    z-index:9999;
+}
+
+#boton:hover{
+
+    transform:scale(1.05);
+
+}
+
 </style>
 </head>
+
 <body>
 
-<div id="consejoBox"></div>
+<div id="consejo"></div>
 
-<div id="panel">
-    <button onclick="mostrarConsejo()">
-        CONSEJO MILLONARIO
-    </button>
-</div>
+<button id="boton" onclick="mostrarConsejo()">
+CONSEJO MILLONARIO
+</button>
 
 <script>
 
 const consejos = [
+
 "Si no controlas tus gastos pequeños, nunca tendrás dinero grande.",
+
 "La disciplina te lleva más lejos que la motivación.",
+
 "La gente rica compra tiempo; la pobre compra apariencias.",
+
 "Aprende algo que puedas vender aunque internet desaparezca mañana.",
+
 "Tu círculo define tu estándar de vida.",
+
 "El descanso también es productividad.",
+
 "Si algo toma menos de 2 minutos, hazlo ahora.",
+
 "No necesitas suerte cuando eres constante.",
+
 "El miedo a empezar cuesta más caro que fracasar.",
+
 "El dinero amplifica hábitos; no arregla malos hábitos.",
+
 "Hablar menos y escuchar más abre puertas.",
+
 "Tu yo de hace 5 años soñaba con lo que hoy consideras normal.",
+
 "Las oportunidades rara vez llegan cuando te sientes listo.",
+
 "Ser consistente en algo simple vence hacer algo perfecto una vez.",
+
 "El que aprende a vender nunca pasa hambre.",
+
 "La comparación destruye más sueños que el fracaso.",
+
 "Si siempre estás disponible, pierdes valor.",
+
 "Tu atención es más valiosa que tu dinero.",
+
 "La paciencia genera intereses compuestos en la vida.",
+
 "El talento abre puertas; la disciplina hace que te quedes.",
+
 "Aprende inglés. Internet recompensa eso muchísimo.",
+
 "El estrés baja cuando dejas de posponer cosas.",
+
 "La confianza se construye cumpliendo promesas pequeñas contigo mismo.",
+
 "El networking es una habilidad, no una personalidad.",
+
 "El mejor momento para empezar era hace años; el segundo mejor es hoy."
+
 ];
 
 let indice = 0;
 
 function mostrarConsejo(){
 
-    const box = document.getElementById("consejoBox");
+    const box = document.getElementById("consejo");
 
     box.innerText = consejos[indice];
 
     box.style.opacity = 1;
 
     setTimeout(() => {
+
         box.style.opacity = 0;
+
     }, 6000);
 
     indice++;
 
     if(indice >= consejos.length){
+
         indice = 0;
+
     }
+
 }
 
-document.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown", function(e){
+
     if(e.key === "F8"){
+
         mostrarConsejo();
+
     }
+
 });
 
 </script>
