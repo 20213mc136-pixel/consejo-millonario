@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Overlay</title>
+
+<style>
+
+body{
+    margin:0;
+    overflow:hidden;
+    background:transparent;
+    font-family:Arial;
+}
+
+#box{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%, -50%);
+
+    background:rgba(0,0,0,0.85);
+
+    color:white;
+
+    padding:30px 50px;
+
+    border-radius:25px;
+
+    font-size:42px;
+
+    width:70%;
+
+    text-align:center;
+
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="box"></div>
+
+<script>
+
+const box = document.getElementById("box");
+
+let ultimo = "";
+
+setInterval(() => {
+
+    const data = localStorage.getItem("consejo");
+
+    if(!data) return;
+
+    if(data !== ultimo){
+
+        ultimo = data;
+
+        const obj = JSON.parse(data);
+
+        box.innerText = obj.texto;
+
+        box.style.display = "block";
+
+        setTimeout(() => {
+
+            box.style.display = "none";
+
+        }, 6000);
+
+    }
+
+}, 500);
+
+</script>
+
+</body>
+</html>
