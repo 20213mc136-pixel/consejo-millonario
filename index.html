@@ -33,7 +33,7 @@ body{
 
     width:70%;
 
-    opacity:0;
+    display:none;
 
     transition:opacity 0.5s ease;
 
@@ -149,11 +149,11 @@ function mostrarConsejo(){
 
     box.innerText = consejos[indice];
 
-    box.style.opacity = 1;
+    box.style.display = "block";
 
     setTimeout(() => {
 
-        box.style.opacity = 0;
+        box.style.display = "none";
 
     }, 6000);
 
